@@ -4,6 +4,165 @@
  * FACEBOOK: https://www.facebook.com/themefisher
  * GITHUB: https://github.com/themefisher/
  */
+$(document).ready(function () {
+    starbucks();
+});
+// 커피별 GET 함수
+function ediya() {
+    $.ajax({
+        type: 'GET',
+        url: '/ediya',
+        data: {},
+        success: function (response) {
+            $('#wrap').empty()
+            let rows = response['ediya']
+            for (let i = 0; i < rows.length; i++) {
+                let id = rows[i]['coffee_id']
+                let name = rows[i]['coffee_name']
+                let url = rows[i]['coffee_image']
+                let temp_html = `<div class="col-lg-4 col-6 mb-4 shuffle-item"  data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+                            <div class="position-relative inner-box">
+                            <div class="image position-relative ">
+                            <img src="${url}" alt="portfolio-image" class="img-fluid w-100 d-block">
+                            <div class="overlay-box">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            >99+</span>
+                            <div class="overlay-inner">
+                            <a class="overlay-content" href="portfolio-single.html">
+                            <h5 class="mb-0">${name}</h5>
+                            <p>즐겨찾기1</p>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>`
+                $('#wrap').append(temp_html)
+            }
+
+        }
+    })
+}
+
+function starbucks() {
+    $.ajax({
+        type: 'GET',
+        url: '/starbucks',
+        data: {},
+        success: function (response) {
+            $('#wrap').empty()
+            let rows = response['starbucks']
+            for (let i = 0; i < rows.length; i++) {
+                let id = rows[i]['coffee_id']
+                let name = rows[i]['coffee_name']
+                let url = rows[i]['coffee_image']
+                let temp_html = `<div class="col-lg-4 col-6 mb-4 shuffle-item"  data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+                            <div class="position-relative inner-box">
+                            <div class="image position-relative ">
+                            <img src="${url}" alt="portfolio-image" class="img-fluid w-100 d-block">
+                            <div class="overlay-box">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            >99+</span>
+                            <div class="overlay-inner">
+                            <a class="overlay-content" href="portfolio-single.html">
+                            <h5 class="mb-0">${name}</h5>
+                            <p>즐겨찾기1</p>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>`
+                $('#wrap').append(temp_html)
+            }
+
+        }
+    })
+}
+
+function hollys() {
+    $.ajax({
+        type: 'GET',
+        url: '/hollys',
+        data: {},
+        success: function (response) {
+            $('#wrap').empty()
+            let rows = response['hollys']
+            for (let i = 0; i < rows.length; i++) {
+                let id = rows[i]['coffee_id']
+                let name = rows[i]['coffee_name']
+                let url = rows[i]['coffee_image']
+                let temp_html = `<div class="col-lg-4 col-6 mb-4 shuffle-item"  data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+                            <div class="position-relative inner-box">
+                            <div class="image position-relative ">
+                            <img src="${url}" alt="portfolio-image" class="img-fluid w-100 d-block">
+                            <div class="overlay-box">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            >99+</span>
+                            <div class="overlay-inner">
+                            <a class="overlay-content" href="portfolio-single.html">
+                            <h5 class="mb-0">${name}</h5>
+                            <p>즐겨찾기1</p>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>`
+                $('#wrap').append(temp_html)
+            }
+
+        }
+    })
+}
+
+function paikdabang() {
+    $.ajax({
+        type: 'GET',
+        url: '/paikdabang',
+        data: {},
+        success: function (response) {
+            $('#wrap').empty()
+            let rows = response['paikdabang']
+            for (let i = 0; i < rows.length; i++) {
+                let id = rows[i]['coffee_id']
+                let name = rows[i]['coffee_name']
+                let url = rows[i]['coffee_image']
+                let temp_html = `<div class="col-lg-4 col-6 mb-4 shuffle-item"  data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+                            <div class="position-relative inner-box">
+                            <div class="image position-relative ">
+                            <img src="${url}" alt="portfolio-image" class="img-fluid w-100 d-block">
+                            <div class="overlay-box">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            >99+</span>
+                            <div class="overlay-inner">
+                            <a class="overlay-content" a href="javascript:void(0);" onclick="favorites_send();">
+                            <h5 class="mb-0">${name}</h5>
+                            <p class="test">${id}</p>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>`
+                $('#wrap').append(temp_html)
+            }
+
+        }
+    })
+}
+
+function favorites_send() {
+    $.ajax({
+        type: 'POST',
+        url: '/favorites_send',
+        data: {coffee_id : $('.test').text()},
+        success: function (response) {
+            alert(response['msg'])
+            console.log()
+        }
+    })
+}
 
 var swiper = new Swiper(".mySwiper", {
         slidesPerView: 2,
@@ -20,69 +179,3 @@ var swiper = new Swiper(".mySwiper", {
 			disableOnInteraction: false, // 화살표 눌러도 autoplay 멈추지 않음
 		  },
       });
-
-(function ($) {
-    'use strict';
-    
-AOS.init({
-    once: true
-});
-
-    // ----------------------- 
-        // Progress Bar--------------------
-        // 
-        // 
-
-    $(window).on ('load', function (){ 
-          
-        $('.progress-bar').each(function(){
-                var width = $(this).data('percent');
-                $(this).css({'transition': 'width 3s'});
-                $(this).appear(function() {
-                    console.log('hello');
-                    $(this).css('width', width + '%');
-                    $(this).find('.count').countTo({
-                        from: 0,
-                        to: width,
-                        speed: 3000,
-                        refreshInterval: 50
-                    });
-                });
-            });
-        }); 
-
-    $('.owl-carousel').owlCarousel({
-        items:1,
-        loop:true,
-        autoplay:true,
-        dots:false,
-        autoplayTimeout:8000
-    });
-
-    // Shuffle js filter and masonry
-    var Shuffle = window.Shuffle;
-    var jQuery = window.jQuery;
-
-    var myShuffle = new Shuffle(document.querySelector('.shuffle-wrapper'), {
-        itemSelector: '.shuffle-item',
-        buffer: 1
-    });
-
-    jQuery('input[name="shuffle-filter"]').on('change', function (evt) {
-        var input = evt.currentTarget;
-        if (input.checked) {
-            myShuffle.filter(input.value);
-        }
-    });
-
-     $('.portfolio-gallery').each(function () {
-        $(this).find('.popup-gallery').magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true
-            }
-        });
-    });
-
-
-})(jQuery);

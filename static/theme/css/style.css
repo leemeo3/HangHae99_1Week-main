@@ -412,7 +412,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
   transform: scale(1.1);
 }
 
-.inner-box .image .overlay-box {
+.inner-box:hover .image .overlay-box {/*    */
   opacity: 1;
 }
 
