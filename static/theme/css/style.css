@@ -21,8 +21,15 @@ html {
   height: 100%;
 }
 
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Pretendard-Regular", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   font-weight: 400;
@@ -38,7 +45,7 @@ p {
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Pretendard-Regular", sans-serif;
   color: #000;
   font-weight: 600;
 }
@@ -106,7 +113,7 @@ h6, .h6 {
 }
 .btn-main:hover {
   color: #fff !important;
-  background: #000;
+  /*background: #000;*/
 }
 
 .btn-black {
@@ -127,7 +134,23 @@ h6, .h6 {
   background: transparent;
   color: #fff;
 }
-
+.close_btn{
+  display:inline-block;
+  *display:inline;
+  float: right;
+  background-color:transparent;
+  border: 0;
+  outline: 0;
+}
+.close_btn:after{
+  display: inline-block;
+  content: "\00d7";
+  padding-top: 5px;
+  font-size:30pt;
+}
+.all_del{
+  float: right;
+}
 a {
   color: #000;
   transition: all 0.25s ease;
@@ -412,9 +435,10 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
   transform: scale(1.1);
 }
 
-.inner-box:hover .image .overlay-box {/*    */
+.inner-box:hover .image .overlay-box {
   opacity: 1;
 }
+
 
 .inner-box .image .overlay-box .overlay-content h5 {
   transform: translateX(0px);
@@ -452,7 +476,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
   font-size: 14px;
   margin-bottom: 0px;
   padding: 0px 8px;
-  margin-top: 15px;
+  /*margin-top: 15px;    이미지 파일 내에 이름 간격 제거*/
   text-transform: capitalize;
   background: rgba(255, 255, 255, 0.9);
   color: #2f3238;
@@ -804,4 +828,5 @@ h4 {
 .overlay-box { /* 현재 즐겨찾기 숫자 */
   margin: 10px;
 }
+
 /*# sourceMappingURL=style.css.map */
