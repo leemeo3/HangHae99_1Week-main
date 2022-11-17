@@ -146,7 +146,7 @@ function paikdabang() {
                             <a class="overlay-content">
                             <h5 class="mb-0">${name}</h5>
                             <p class="test" onclick="send_id(${id})" style="cursor: pointer">즐겨찾기 등록</p>
-                            <p onclick="location.href='/${id}'" style="cursor: pointer">상세페이지 이동</p>
+                            <p onclick="location.href='/coffee/${id}'" style="cursor: pointer">상세페이지 이동</p>
                             </a>
                             </div>
                             </div>
