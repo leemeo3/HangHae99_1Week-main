@@ -40,3 +40,7 @@
 <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white"/>
 </div>
 
+<hr/>
+
+## 트러블슈팅
+https://23hoon.tistory.com/43
